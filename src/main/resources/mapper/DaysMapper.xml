@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.weather.dao.DaysMapper" >
+  <resultMap id="BaseResultMap" type="com.example.weather.pojo.Days" >
+    <constructor >
+      <arg column="V01301" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="V_TIME_AVAILA" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="V04292" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="V12001_701" jdbcType="DOUBLE" javaType="java.lang.Double" />
+      <arg column="V12001_701_05" jdbcType="DOUBLE" javaType="java.lang.Double" />
+      <arg column="V12001_701_06" jdbcType="DOUBLE" javaType="java.lang.Double" />
+      <arg column="V13004_701" jdbcType="DOUBLE" javaType="java.lang.Double" />
+      <arg column="V13305_701" jdbcType="DOUBLE" javaType="java.lang.Double" />
+      <arg column="V13306_701" jdbcType="DOUBLE" javaType="java.lang.Double" />
+      <arg column="V11002_701" jdbcType="DOUBLE" javaType="java.lang.Double" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List" >
+    V01301, V_TIME_AVAILA, V04292,
+      V12001_701, V12001_701_05, V12001_701_06,
+      V13004_701, V13305_701, V13306_701,
+      V11002_701
+  </sql>
+  <insert id="insert" parameterType="com.example.weather.pojo.Days" >
+    insert into days (V01301, V_TIME_AVAILA, V04292, 
+      V12001_701, V12001_701_05, V12001_701_06, 
+      V13004_701, V13305_701, V13306_701, 
+      V11002_701)
+    values (#{v01301,jdbcType=VARCHAR}, #{vTimeAvaila,jdbcType=VARCHAR}, #{v04292,jdbcType=INTEGER}, 
+      #{v12001701,jdbcType=DOUBLE}, #{v1200170105,jdbcType=DOUBLE}, #{v1200170106,jdbcType=DOUBLE}, 
+      #{v13004701,jdbcType=DOUBLE}, #{v13305701,jdbcType=DOUBLE}, #{v13306701,jdbcType=DOUBLE}, 
+      #{v11002701,jdbcType=DOUBLE})
+  </insert>
+  <insert id="insertSelective" parameterType="com.example.weather.pojo.Days" >
+    insert into days
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="v01301 != null" >
+        V01301,
+      </if>
+      <if test="vTimeAvaila != null" >
+        V_TIME_AVAILA,
+      </if>
+      <if test="v04292 != null" >
+        V04292,
+      </if>
+      <if test="v12001701 != null" >
+        V12001_701,
+      </if>
+      <if test="v1200170105 != null" >
+        V12001_701_05,
+      </if>
+      <if test="v1200170106 != null" >
+        V12001_701_06,
+      </if>
+      <if test="v13004701 != null" >
+        V13004_701,
+      </if>
+      <if test="v13305701 != null" >
+        V13305_701,
+      </if>
+      <if test="v13306701 != null" >
+        V13306_701,
+      </if>
+      <if test="v11002701 != null" >
+        V11002_701,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="v01301 != null" >
+        #{v01301,jdbcType=VARCHAR},
+      </if>
+      <if test="vTimeAvaila != null" >
+        #{vTimeAvaila,jdbcType=VARCHAR},
+      </if>
+      <if test="v04292 != null" >
+        #{v04292,jdbcType=INTEGER},
+      </if>
+      <if test="v12001701 != null" >
+        #{v12001701,jdbcType=DOUBLE},
+      </if>
+      <if test="v1200170105 != null" >
+        #{v1200170105,jdbcType=DOUBLE},
+      </if>
+      <if test="v1200170106 != null" >
+        #{v1200170106,jdbcType=DOUBLE},
+      </if>
+      <if test="v13004701 != null" >
+        #{v13004701,jdbcType=DOUBLE},
+      </if>
+      <if test="v13305701 != null" >
+        #{v13305701,jdbcType=DOUBLE},
+      </if>
+      <if test="v13306701 != null" >
+        #{v13306701,jdbcType=DOUBLE},
+      </if>
+      <if test="v11002701 != null" >
+        #{v11002701,jdbcType=DOUBLE},
+      </if>
+    </trim>
+  </insert>
+  <select id="selectAll" resultMap="BaseResultMap" parameterType="com.example.weather.pojo.Days">
+    select
+    <include refid="Base_Column_List" />
+    from days
+  </select>
+</mapper>
